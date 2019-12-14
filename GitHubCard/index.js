@@ -3,6 +3,16 @@
            https://api.github.com/users/<your name>
 */
 
+axios.get('https://api.github.com/users/elisabethearley')
+  .then((cardData) => {
+    console.log(cardData.data);
+    const cards = document.querySelector('.cards');
+    cards.appendChild(cardCreator(cardData.data))
+  })
+  .catch( err => {
+    console.log('Error: ', err);
+  })
+  
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 
    data in order to use it to build your component function 
